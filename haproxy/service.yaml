@@ -7,7 +7,7 @@ spec:
   type: ClusterIP
   selector:
     app: haproxy
+  externalIPs:
+    - 10.0.0.4
   ports:
-    - name: http
-      port: 80
-      targetPort: 8080
+    - { name: http, port: 80, targetPort: 8080 }
