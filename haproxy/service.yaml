@@ -8,6 +8,6 @@ spec:
   selector:
     app: haproxy
   externalIPs:
-    - 10.0.0.4
+    - 10.0.0.7
   ports:
     - { name: http, port: 90, targetPort: 8080 }
