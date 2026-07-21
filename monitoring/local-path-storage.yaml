@@ -92,12 +92,8 @@ metadata:
 data:
   config.json: |-
     {
-      "nodePathMap": [
-        {
-          "node": "DEFAULT_PATH_FOR_NON_LISTED_NODES",
-          "paths": ["/opt/local-path-provisioner"]
-        }
-      ]
+      "nodePathMap": [],
+      "sharedFileSystemPath": "/app/logs"
     }
   setup: |-
     #!/bin/sh
@@ -171,10 +167,10 @@ spec:
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: local-path
+  name: persistent-storage
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     storageclass.kubernetes.io/is-default-class: "true"
 provisioner: rancher.io/local-path
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate
 reclaimPolicy: Delete

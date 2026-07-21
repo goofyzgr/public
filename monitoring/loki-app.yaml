@@ -41,7 +41,7 @@ spec:
           persistence:
             enabled: true
             size: 10Gi
-            storageClass: local-path
+            storageClass: persistent-storage
 
         gateway:
           enabled: false
