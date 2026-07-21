@@ -4,11 +4,12 @@ configure_host() {
   echo "Start: $(date)"
 
   ssh -A -o BatchMode=yes -o StrictHostKeyChecking=accept-new "$USER@$HOST" \
-    'bash -s' "$HOST" "$ADMIN_NODE" <<'REMOTE_SCRIPT'
+    'bash -s' "$HOST" "$ADMIN_NODE" "$KUBESPAY_REPO" <<'REMOTE_SCRIPT'
 set -euo pipefail
 
 HOST="$1"
 ADMIN_NODE="$2"
+KUBESPAY_REPO="$3"
 
 export DEBIAN_FRONTEND=noninteractive
 
