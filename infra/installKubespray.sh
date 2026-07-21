@@ -3,10 +3,11 @@ run_kubespray_on_admin() {
   echo "Start: $(date)"
 
   ssh -A -o BatchMode=yes -o StrictHostKeyChecking=accept-new "$USER@$ADMIN_NODE" \
-    'bash -s' "$PRIVATE_KEY_PATH" <<'REMOTE_ADMIN_SCRIPT'
+    'bash -s' "$PRIVATE_KEY_PATH" "$INVENTORY_PATH" <<'REMOTE_ADMIN_SCRIPT'
 set -euo pipefail
 
 PRIVATE_KEY_PATH="$1"
+INVENTORY_PATH="$2"
 
 VENVDIR="kubespray-venv"
 KUBESPRAYDIR="kubespray"
