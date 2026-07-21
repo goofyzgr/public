@@ -9,10 +9,10 @@ set -euo pipefail
 PRIVATE_KEY_PATH="$1"
 
 VENVDIR="kubespray-venv"
-KUBESPRAYDIR="public/infra/kubespray"
+KUBESPRAYDIR="kubespray"
 
 echo "Host admin: $(hostname)"
-echo "Katalog roboczy: $(pwd)"
+echo "Work directory: $(pwd)"
 
 if [ ! -d "$VENVDIR" ]; then
   python3 -m venv "$VENVDIR"
@@ -23,8 +23,8 @@ source "$VENVDIR/bin/activate"
 
 cd "$KUBESPRAYDIR"
 
-if [ ! -f "$HOME/$KUBESPRAYDIR/inventory.yaml" ]; then
-  echo "ERROR: No $HOME/$$KUBESPRAYDIR/inventory.yaml file"
+if [ ! -f "$INVENTORY_PATH" ]; then
+  echo "ERROR: No $INVENTORY_PATH file"
   exit 1
 fi
 
@@ -36,7 +36,7 @@ fi
 chmod 600 "$HOME/.ssh/private_key"
 
 ansible-playbook \
-  -i "$HOME/$KUBESPRAYDIR/inventory.yaml" \
+  -i "$INVENTORY_PATH" \
   cluster.yml \
   -b \
   -v \
