@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: public
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque
+stringData:
+  type: git
+  url: https://github.com/goofyzgr/public.git
+  username: tech_82@go2.pl
+  password: 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

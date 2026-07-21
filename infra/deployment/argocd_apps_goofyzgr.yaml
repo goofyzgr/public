@@ -1,0 +1,34 @@
+---
+applicationsets:
+  default:
+    namespace: argocd
+    goTemplate: true
+    generators:
+      - git:
+          repoURL: https://github.com/goofyzgr/public.git
+          revision: master
+          directories:
+            - path: "*"
+    template:
+      metadata:
+        name: '{{.path.basename}}'
+      spec:
+        ignoreApplicationDifferences:
+          - jsonPointers:
+              - /spec/syncPolicy
+        project: default
+        source:
+          repoURL: https://github.com/goofyzgr/public.git
+          targetRevision: master
+          path: '{{.path.path}}'
+        destination:
+          server: https://kubernetes.default.svc
+          namespace: '{{.path.basename}}'
+        syncPolicy:
+          automated:
+            prune: true
+            selfHeal: true
+          syncOptions:
+            - CreateNamespace=true
+            - ServerSideApply=true
+        revisionHistoryLimit: 0
