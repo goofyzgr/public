@@ -3,6 +3,7 @@ set -euo pipefail
 
 source configuration.sh
 source prepareHost.sh
+source installKubespray.sh
 
 mkdir -p logs
 
@@ -36,6 +37,8 @@ done
 
 if [[ "$FAILED" -ne 0 ]]; then
   echo "At least one node has failed"
-  echo "Skipping ansible-playbook."
+  echo "Skipping; ansible-playbook."
   exit 1
 fi
+
+run_kubespray_on_admin > "logs/${ADMIN_NODE}-kubespray.log" 2>&1
