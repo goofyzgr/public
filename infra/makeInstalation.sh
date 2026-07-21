@@ -4,6 +4,7 @@ set -euo pipefail
 source configuration.sh
 source prepareHost.sh
 source installKubespray.sh
+source installArgo.sh
 
 mkdir -p logs
 
