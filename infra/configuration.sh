@@ -3,13 +3,13 @@ USER="lukaskub"
 
 #list of VMs
 HOSTS=(
-  "20.51.133.196"
-  "20.121.184.69"
-  "20.85.234.75"
+  "20.169.136.5"
+  "20.169.239.237"
+  "40.117.250.160"
 )
 
 #admin node from where ansible is run
-ADMIN_NODE="20.51.133.196"
+ADMIN_NODE="20.169.136.5"
 
 KUBESPAY_REPO="https://github.com/kubernetes-sigs/kubespray"
 

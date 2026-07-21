@@ -41,4 +41,8 @@ if [[ "$FAILED" -ne 0 ]]; then
   exit 1
 fi
 
+echo "Starting kubespray installation for $ADMIN_NODE"
 run_kubespray_on_admin > "logs/${ADMIN_NODE}-kubespray.log" 2>&1
+
+echo "Starting Argo CD installation for $ADMIN_NODE"
+install_argocd_withHelm_on_admin > "logs/${ADMIN_NODE}-argocd.log" 2>&1
