@@ -17,7 +17,7 @@ all:
     kube_vip_enabled: true
     kube_vip_arp_enabled: true
     kube_vip_controlplane_enabled: true
-    kube_vip_address: 10.0.0.7
+    kube_vip_address: 10.0.0.4
     kube_vip_services_enabled: true
     kube_vip_services_interface: eth0
     kube_vip_lb_enable: true
