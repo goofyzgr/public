@@ -12,3 +12,5 @@ HOSTS=(
 ADMIN_NODE="20.51.133.196"
 
 KUBESPAY_REPO="https://github.com/kubernetes-sigs/kubespray"
+
+PRIVATE_KEY_PATH="~/.ssh/private_key"
