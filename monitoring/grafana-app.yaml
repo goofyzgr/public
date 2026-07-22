@@ -21,6 +21,14 @@ spec:
         service:
           type: ClusterIP
 
+        persistence:
+          enabled: true
+          type: pvc
+          storageClassName: persistent-storage
+          accessModes:
+            - ReadWriteOnce
+          size: 5Gi
+
         datasources:
           datasources.yaml:
             apiVersion: 1
